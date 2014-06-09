@@ -12,7 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // add StoreKit Observer
+    [[SKPaymentQueue defaultQueue]addTransactionObserver:self];
+    
     return YES;
 }
 							
@@ -42,5 +44,96 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - StoreKit Methods
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
+    
+    for (SKPaymentTransaction *transaction in transactions) {
+        switch (transaction.transactionState) {
+                
+            case SKPaymentTransactionStatePurchased: {
+                
+                // purchase went well
+                // unlock the full version
+                [self unlockFullVersion];
+                
+                // finish the transaction
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                
+                // save the receipt
+                [self saveReceipts];
+                
+                // tell the user this went well
+                NSLog(@"Purchase was successful!");
+                
+                break;
+            }
+                
+            case SKPaymentTransactionStatePurchasing: {
+                
+                // currently purchasing
+                break;
+            }
+                
+            case SKPaymentTransactionStateRestored: {
+                
+                // restored
+                
+                // unlock full version
+                [self unlockFullVersion];
+                
+                // finish transaction
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
+                
+                // tell the user
+                NSLog(@"Restore was successful!");
+                
+                break;
+            }
+                
+            case SKPaymentTransactionStateFailed: {
+                
+                // this didn't work so well
+                NSLog(@"Restore was NOT sucessfull :-(");
+                
+                break;
+            }
+                
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - Store Methods
+
+- (void)unlockFullVersion {
+    
+    // save YES to User Defaults
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"fullVersion"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
+
+- (void)saveReceipts {
+    
+    // save your original receipts in iCloud
+    // upon restore you can compare the new receipt to the original
+    // however if you don't have the data anymore this makes little sense
+    // just thought I'd pass on the Apple Reccomendation here...
+}
+
+- (void)validateReceipt {
+    
+    // receipt validation goes here
+}
+
+
+
+
+
+
+
+
 
 @end

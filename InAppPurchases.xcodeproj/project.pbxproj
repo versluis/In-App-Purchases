@@ -22,6 +22,8 @@
 		D222FB8D19424F6F00B77C70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D222FB6C19424F6F00B77C70 /* UIKit.framework */; };
 		D222FB9519424F6F00B77C70 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D222FB9319424F6F00B77C70 /* InfoPlist.strings */; };
 		D222FB9719424F6F00B77C70 /* InAppPurchasesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D222FB9619424F6F00B77C70 /* InAppPurchasesTests.m */; };
+		D222FBA119424FA800B77C70 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D222FBA019424FA800B77C70 /* StoreKit.framework */; };
+		D222FBA41942507B00B77C70 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = D222FBA31942507B00B77C70 /* Shop.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		D222FB9219424F6F00B77C70 /* InAppPurchasesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InAppPurchasesTests-Info.plist"; sourceTree = "<group>"; };
 		D222FB9419424F6F00B77C70 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D222FB9619424F6F00B77C70 /* InAppPurchasesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InAppPurchasesTests.m; sourceTree = "<group>"; };
+		D222FBA019424FA800B77C70 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D222FBA21942507B00B77C70 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		D222FBA31942507B00B77C70 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,7 @@
 				D222FB6B19424F6F00B77C70 /* CoreGraphics.framework in Frameworks */,
 				D222FB6D19424F6F00B77C70 /* UIKit.framework in Frameworks */,
 				D222FB6919424F6F00B77C70 /* Foundation.framework in Frameworks */,
+				D222FBA119424FA800B77C70 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,7 @@
 		D222FB6719424F6F00B77C70 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D222FBA019424FA800B77C70 /* StoreKit.framework */,
 				D222FB6819424F6F00B77C70 /* Foundation.framework */,
 				D222FB6A19424F6F00B77C70 /* CoreGraphics.framework */,
 				D222FB6C19424F6F00B77C70 /* UIKit.framework */,
@@ -120,6 +127,8 @@
 				D222FB7D19424F6F00B77C70 /* Main_iPad.storyboard */,
 				D222FB8019424F6F00B77C70 /* ViewController.h */,
 				D222FB8119424F6F00B77C70 /* ViewController.m */,
+				D222FBA21942507B00B77C70 /* Shop.h */,
+				D222FBA31942507B00B77C70 /* Shop.m */,
 				D222FB8319424F6F00B77C70 /* Images.xcassets */,
 				D222FB6F19424F6F00B77C70 /* Supporting Files */,
 			);
@@ -202,6 +211,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Pinkstone Pictures LLC";
 				TargetAttributes = {
+					D222FB6419424F6F00B77C70 = {
+						DevelopmentTeam = F34HMY85N9;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
 					D222FB8819424F6F00B77C70 = {
 						TestTargetID = D222FB6419424F6F00B77C70;
 					};
@@ -256,6 +273,7 @@
 				D222FB8219424F6F00B77C70 /* ViewController.m in Sources */,
 				D222FB7919424F6F00B77C70 /* AppDelegate.m in Sources */,
 				D222FB7519424F6F00B77C70 /* main.m in Sources */,
+				D222FBA41942507B00B77C70 /* Shop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,10 +408,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InAppPurchases/InAppPurchases-Prefix.pch";
 				INFOPLIST_FILE = "InAppPurchases/InAppPurchases-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9635DF3F-E9F3-4CF8-86D2-33EA2AA44E9F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -403,10 +424,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "InAppPurchases/InAppPurchases-Prefix.pch";
 				INFOPLIST_FILE = "InAppPurchases/InAppPurchases-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9635DF3F-E9F3-4CF8-86D2-33EA2AA44E9F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -470,6 +494,7 @@
 				D222FB9C19424F6F00B77C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D222FB9D19424F6F00B77C70 /* Build configuration list for PBXNativeTarget "InAppPurchasesTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +503,7 @@
 				D222FB9F19424F6F00B77C70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
