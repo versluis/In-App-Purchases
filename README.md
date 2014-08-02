@@ -1,4 +1,4 @@
-In App Purchases
+In App Purchases in iOS 7
 ================
 
 iOS Project demonstrating In-App Purchases
