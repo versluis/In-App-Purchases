@@ -13,5 +13,5 @@ Branches
 
 There are two branches to this project: 
 
-master: shows the proejct with a single in-app purchase
-Multi-IAP: added a second product, as explained in my Multi IAP screencast 
+* master: shows the proejct with a single in-app purchase https://github.com/versluis/In-App-Purchases
+* Multi-IAP: added a second product, as explained in my Multi IAP screencast https://github.com/versluis/In-App-Purchases/tree/Multi-IAP
