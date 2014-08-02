@@ -73,7 +73,7 @@
     NSString *price = [NSString stringWithFormat:@"Buy this for %@", [formatter stringFromNumber:self.thisProduct.price]];
     
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:self.thisProduct.localizedTitle message:self.thisProduct.localizedDescription delegate:self.delegate cancelButtonTitle:price otherButtonTitles:@"Restore Purchases", @"Maybe Later...", nil];
-    alertView.tag = 1;
+    alertView.tag = 2;
     [alertView show];
 }
 

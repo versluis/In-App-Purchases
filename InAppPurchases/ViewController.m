@@ -66,6 +66,9 @@
 }
 
 - (IBAction)restoreButtonPressed:(id)sender {
+    
+    // restore the purchase
+    [self.newShop restoreThePurchase];
 }
 
 - (IBAction)buyProduct2:(id)sender {
@@ -100,15 +103,31 @@
     
     switch (buttonIndex) {
         case 0: {
-            // buy button
-            [self.newShop makeThePurchase];
+            // buy button - Product 1
+            if (alertView.tag == 1) {
+                [self.newShop makeThePurchase];
+            }
+            
+            // buy button - Product 2
+            if (alertView.tag == 2) {
+                [self.product2 makeThePurchase];
+            }
+            
             break;
         }
             
             
         case 1: {
-            // restore button
-            [self.newShop restoreThePurchase];
+            // restore button - Product 1
+            if (alertView.tag == 1) {
+                [self.newShop restoreThePurchase];
+            }
+            
+            // restore button - Product 2
+            if (alertView.tag == 2) {
+                [self.product2 restoreThePurchase];
+            }
+            
             
             break;
         }
