@@ -96,6 +96,7 @@
                 
                 // this didn't work so well
                 NSLog(@"Restore was NOT sucessfull :-(");
+                [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
                 
                 break;
             }
