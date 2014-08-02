@@ -24,6 +24,7 @@
 		D222FB9719424F6F00B77C70 /* InAppPurchasesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D222FB9619424F6F00B77C70 /* InAppPurchasesTests.m */; };
 		D222FBA119424FA800B77C70 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D222FBA019424FA800B77C70 /* StoreKit.framework */; };
 		D222FBA41942507B00B77C70 /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = D222FBA31942507B00B77C70 /* Shop.m */; };
+		D2B4F191198D44C9006A9321 /* Product2.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B4F190198D44C9006A9321 /* Product2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		D222FBA019424FA800B77C70 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D222FBA21942507B00B77C70 /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
 		D222FBA31942507B00B77C70 /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		D2B4F18F198D44BE006A9321 /* Product2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product2.h; sourceTree = "<group>"; };
+		D2B4F190198D44C9006A9321 /* Product2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				D222FB8119424F6F00B77C70 /* ViewController.m */,
 				D222FBA21942507B00B77C70 /* Shop.h */,
 				D222FBA31942507B00B77C70 /* Shop.m */,
+				D2B4F18F198D44BE006A9321 /* Product2.h */,
+				D2B4F190198D44C9006A9321 /* Product2.m */,
 				D222FB8319424F6F00B77C70 /* Images.xcassets */,
 				D222FB6F19424F6F00B77C70 /* Supporting Files */,
 			);
@@ -270,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2B4F191198D44C9006A9321 /* Product2.m in Sources */,
 				D222FB8219424F6F00B77C70 /* ViewController.m in Sources */,
 				D222FB7919424F6F00B77C70 /* AppDelegate.m in Sources */,
 				D222FB7519424F6F00B77C70 /* main.m in Sources */,
@@ -414,7 +420,7 @@
 				GCC_PREFIX_HEADER = "InAppPurchases/InAppPurchases-Prefix.pch";
 				INFOPLIST_FILE = "InAppPurchases/InAppPurchases-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9635DF3F-E9F3-4CF8-86D2-33EA2AA44E9F";
+				PROVISIONING_PROFILE = "0C9AA226-573F-4B3C-891A-AA45DA30B568";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -430,7 +436,7 @@
 				GCC_PREFIX_HEADER = "InAppPurchases/InAppPurchases-Prefix.pch";
 				INFOPLIST_FILE = "InAppPurchases/InAppPurchases-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9635DF3F-E9F3-4CF8-86D2-33EA2AA44E9F";
+				PROVISIONING_PROFILE = "0C9AA226-573F-4B3C-891A-AA45DA30B568";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -8,17 +8,21 @@
 
 #import "ViewController.h"
 #import "Shop.h"
+#import "Product2.h"
 
 @interface ViewController () <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *purchaseButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *restoreButton;
 @property (strong, nonatomic) IBOutlet UILabel *versionsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *product2Label;
 
 @property (strong, nonatomic) Shop *newShop;
+@property (strong, nonatomic) Product2 *product2;
 
 - (IBAction)purchaseButtonPressed:(id)sender;
 - (IBAction)restoreButtonPressed:(id)sender;
+- (IBAction)buyProduct2:(id)sender;
 
 @end
 
@@ -37,6 +41,13 @@
         
         self.versionsLabel.text = @"Free Version";
     }
+    
+    // did the user buy the Hat?
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"Product2"]) {
+        self.product2Label.text = @"WE HAVE THE HAT! :-)";
+    } else {
+        self.product2Label.text = @"No hat here :-(";
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +55,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+#pragma calling the Purchase Methods
 
 - (IBAction)purchaseButtonPressed:(id)sender {
     
@@ -54,6 +68,14 @@
 - (IBAction)restoreButtonPressed:(id)sender {
 }
 
+- (IBAction)buyProduct2:(id)sender {
+    
+    [self.product2 validateProductIdentifiers];
+}
+
+
+#pragma Custom Initialisers
+
 - (Shop *)newShop {
     
     if (!_newShop) {
@@ -63,6 +85,14 @@
     return _newShop;
 }
 
+- (Product2 *)product2 {
+    
+    if (!_product2) {
+        _product2 = [[Product2 alloc]init];
+        _product2.delegate = self;
+    }
+    return _product2;
+}
 
 #pragma mark - Alert View Delegate
 

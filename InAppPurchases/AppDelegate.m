@@ -56,7 +56,7 @@
                 
                 // purchase went well
                 // unlock the full version
-                [self unlockFullVersion];
+                [self unlockFullVersion:transaction];
                 
                 // finish the transaction
                 [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
@@ -81,7 +81,7 @@
                 // restored
                 
                 // unlock full version
-                [self unlockFullVersion];
+                [self unlockFullVersion:transaction];
                 
                 // finish transaction
                 [[SKPaymentQueue defaultQueue]finishTransaction:transaction];
@@ -109,11 +109,24 @@
 
 #pragma mark - Store Methods
 
-- (void)unlockFullVersion {
+- (void)unlockFullVersion:(SKPaymentTransaction *)transaction {
     
-    // save YES to User Defaults
-    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"fullVersion"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    // test which product needs to be unlocked
+    
+    // is this product 1?
+    if ([transaction.payment.productIdentifier isEqualToString:@"com.versluis.buyme.screencast"]) {
+        
+        // save YES to User Defaults
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"fullVersion"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+    
+    // is this product 2?
+    if ([transaction.payment.productIdentifier isEqualToString:@"com.versluis.buyme.hat"]) {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"Product2"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+    
 }
 
 - (void)saveReceipts {
