@@ -107,6 +107,19 @@
     }
 }
 
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
+    
+    // called when restored transactions have finished successfully
+    // not required
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
+    
+    // called when restored transaction have finished with an error
+    // for example, user gives the wrong password or hits cancel
+    // not required
+}
+
 #pragma mark - Store Methods
 
 - (void)unlockFullVersion:(SKPaymentTransaction *)transaction {
